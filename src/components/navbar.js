@@ -5,10 +5,10 @@ const Navbar = () => {
   return (
     <div className='navbarBox'>
       <div>
-        <NavLink to="/cart">Cart</NavLink>
+        <NavLink to="/cart">Cart(0)</NavLink>
       </div>
       <div>
-        <NavLink to='/home'>Home</NavLink>
+        <NavLink to='/'>Home</NavLink>
         </div>
     </div>
   )

@@ -1,21 +1,24 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-
+import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
+import { ProductsSelected } from '../redux/actions/productActions';
 
 const SinglePage = () => {
+  const product= useSelector((state)=>state.products)
   const { id } = useParams();
-  const [product, setProduct] = useState([])
   const [loading, setLoading] = useState(false)
+  const dispatch = useDispatch();
+
+  const getProductDetails = () => {
+    const response = axios.get(`https://fakestoreapi.com/products/${id}`).catch(error => {
+    console.log(error)
+    })
+    
+dispatch(ProductsSelected(response.data))
+} 
+
   
-  useEffect(() => {
-    const getproduct = async () => {
-      setLoading(true);
-      const response = await fetch('https://fakestoreapi.com/products/${id}');
-      setProduct(await response.json());
-      setLoading(false);
-    }
-    getproduct()
-  })
 
   const Loading = () => {
     return (
@@ -28,7 +31,6 @@ const SinglePage = () => {
   const ShowProduct = () => {
     return (
       <>
-        <img src={product.image } alt={product.title} />
       </>
     )
   
