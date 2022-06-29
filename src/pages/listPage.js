@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import "./listPage.css"
+import { NavLink } from 'react-router-dom'
 const ListPage = () => {
 
   const [data, setData] = useState('')
@@ -37,13 +38,12 @@ const ListPage = () => {
         <div>
           {data.map((product) => {
             return (
-              <div className='card'>
-                <h2>{product.title}</h2>
-                <img className='imageBox' src={product.image} />
+              <NavLink to={`/listing/${product.id}`} className='card' >
+                <h2>{product.title.substring(0,20)}...</h2>
+                <img className='imageBox' height="280px" src={product.image} alt="pro img" />
                 <h5>${product.price}</h5>
                 <button>Add to cart</button>
-                
-        </div>)
+                        </NavLink>)
       })}
 </div>
       </>

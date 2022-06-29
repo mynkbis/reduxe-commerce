@@ -1,10 +1,15 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-
+import { NavLink} from 'react-router-dom'
+import "../pages/listPage.css"
 const Navbar = () => {
   return (
+    <div className='navbarBox'>
       <div>
-        <Link to="/cart">Cart</Link>
+        <NavLink to="/cart">Cart</NavLink>
+      </div>
+      <div>
+        <NavLink to='/home'>Home</NavLink>
+        </div>
     </div>
   )
 }

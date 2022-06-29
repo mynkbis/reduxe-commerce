@@ -12,10 +12,9 @@ function App() {
         
         <Route exact path="/" element={<Home/>} />
         <Route exact path="/listing" element={<ListPage/>} />
-        <Route exact path="/singlePage" element={<SinglePage/>} />
+        <Route exact path="/listing/:id" element={<SinglePage/>} />
       </Routes>
-hello      App
-    </div>
+   </div>
   );
 }
 
