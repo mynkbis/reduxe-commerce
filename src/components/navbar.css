@@ -1,0 +1,7 @@
+.navbarBox {
+    background-color: rgb(241, 121, 100);
+    padding: 20px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+}

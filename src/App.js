@@ -1,22 +1,23 @@
-import logo from './logo.svg';
+  
 import './App.css';
+import Navbar from './components/navbar';
+import Cart from './components/cart';
 import ListPage from './pages/listPage';
-import SinglePage from './pages/singlePage'
-import { Router, Routes, Route } from 'react-router-dom';
-import { Home } from './pages/home';
-import NotFound from './pages/notFound';
-import Cart from "./components/cart"
+import Home from './pages/home'
+import { Route, Routes } from 'react-router-dom';
+import NotFound from './pages/error'
+
 function App() {
   return (
     <div className="App">
+      <Navbar/>
       <Routes>
         
         <Route path="/" element={<Home/>} />
-        <Route exact path="/listing" element={<ListPage />} />
+        <Route exact path="/listing" element={<ListPage/>} />
         <Route exact path="/cart" element={<Cart/>} />
-        <Route exact path="/listing/:id" element={<SinglePage/>} /> 
-        <Route path='*' element={<NotFound/>}>404!</Route>
-      </Routes>
+             <Route path='*' element={<NotFound/>}>404!</Route>
+      </Routes> 
        </div>
   );
 }

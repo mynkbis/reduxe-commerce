@@ -1,6 +1,7 @@
 import React from 'react'
 import { NavLink} from 'react-router-dom'
-import "../pages/listPage.css"
+import './navbar.css'
+
 const Navbar = () => {
   return (
     <div className='navbarBox'>

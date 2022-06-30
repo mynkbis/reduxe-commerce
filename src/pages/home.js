@@ -2,12 +2,13 @@ import React from 'react'
 import Navbar from '../components/navbar'
 import ListPage from './listPage'
 
-export const Home = () => {
+ const Home = () => {
   return (
       <div>
-      <Navbar />
-      <ListPage />
-      from home
-      </div>
+          <ListPage />
+          footer
+     </div>
   )
-}
+ }
+
+ export default Home
