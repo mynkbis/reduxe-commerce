@@ -1,38 +1,74 @@
 import React, { useEffect } from 'react'
-import { fetchProducts } from '../redux/productSlice'
+import { fetchProducts, getAllProducts } from '../redux/productSlice'
 import { useSelector, useDispatch } from 'react-redux'
-import { NavLink } from 'react-router-dom';
 import '../App.css'
+import ProductCard from '../components/productCard';
 
 const ListPage = () => {
   const dispatch = useDispatch();
-
-    const  products = useSelector((state) => state.products.product);
-console.log("list page",products)
+  const  products = useSelector(getAllProducts);
+console.log("listPage ln 11 ",products)
 
     useEffect(() => {
       dispatch(fetchProducts())
-    
-      },[dispatch])
-
-
-  return (
-    <div>
+      
+    }, [dispatch])
+  
+ return (
+    <div> 
       from listing pages
    
       <div className='container'>
-        {products && products.map((prod, id) => {
-          return (
-               <NavLink to={`/listing/${prod.id}`} className='card' >
-                   <h2>{prod.title.substring(0,20)}...</h2>
-                   <img className='imageBox' height="280px" src={prod.image} alt="pro img" />
-                   <h5>${prod.price}</h5>
-                  <button>Add to cart</button>
-                          </NavLink>)              
-        })}
+        {products && products.map((prod, id) => (
+          <ProductCard key={id} prod = {prod} />))}
       </div>
     </div>
   )
 }
 
 export default ListPage
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// {products && products.map((prod, id) => {
+//           return (
+//             <div className='card' key={id} onClick={() => handleCard(prod.id)}  >
+//               {/* <NavLink to={`/listing/${prod.id}`}  > */}
+//                    <h2>{prod.title.substring(0,20)}...</h2>
+//                    <img className='imageBox' height="280px" src={prod.image} alt="pro img" />
+//                    <h5>${prod.price}</h5>
+//                   <button >Add to cart</button>
+//               {/* </NavLink> */}
+//             </div>)              
+//         })}

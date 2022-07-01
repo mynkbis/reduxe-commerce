@@ -6,6 +6,7 @@ import ListPage from './pages/listPage';
 import Home from './pages/home'
 import { Route, Routes } from 'react-router-dom';
 import NotFound from './pages/error'
+ import { SingleProductDetails } from './components/singleProductDetails';
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
       <Routes>
         
         <Route path="/" element={<Home/>} />
-        <Route exact path="/listing" element={<ListPage/>} />
+        <Route exact path="/listing" element={<ListPage />} />
+        <Route exact path="/listing/:id" element={<SingleProductDetails/>} />
         <Route exact path="/cart" element={<Cart/>} />
              <Route path='*' element={<NotFound/>}>404!</Route>
       </Routes> 
