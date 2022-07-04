@@ -14,9 +14,7 @@ const initialState = {
 export const fetchProducts = createAsyncThunk('pages/fetchProducts', async () => {
     try {
            const response = await axios.get(baseURL)
-      
-        return [...response.data];
-       
+           return [...response.data];
     } catch (error) {
         return error.message;
     }
@@ -27,8 +25,7 @@ export const fetchSingleProduct = createAsyncThunk('redux/fetchProducts', async 
   try {
          const response = await axios.get(`${baseURL}/${id}`)
         console.log("prodcut single productSLice ln 29", response)
-        return response.data;
-       
+        return response.data 
     } catch (error) {
         return error.message;
     }

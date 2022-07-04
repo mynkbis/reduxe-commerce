@@ -1,10 +1,14 @@
 import React from 'react'
 import ListPage from './listPage'
 
+
+
  const Home = () => {
   return (
       <div>
-          <ListPage />
+         
+              <ListPage/>
+           
           footer
      </div>
   )

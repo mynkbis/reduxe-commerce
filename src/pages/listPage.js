@@ -1,27 +1,35 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { fetchProducts, getAllProducts } from '../redux/productSlice'
 import { useSelector, useDispatch } from 'react-redux'
 import '../App.css'
 import ProductCard from '../components/productCard';
 
 const ListPage = () => {
+
+  const [isLoading, setIsLoading]=useState(false)
   const dispatch = useDispatch();
   const  products = useSelector(getAllProducts);
-console.log("listPage ln 11 ",products)
+ console.log("listPage ln 11 ", products)
 
     useEffect(() => {
       dispatch(fetchProducts())
-      
-    }, [dispatch])
+      if (!products) {
+         setIsLoading(true)
+      } else setIsLoading(false)
+     
+    }, [products, dispatch])
   
  return (
-    <div> 
-      from listing pages
-   
-      <div className='container'>
+   <div> 
+     {isLoading? "loading..." : <div className='container'>
+     
         {products && products.map((prod, id) => (
-          <ProductCard key={id} prod = {prod} />))}
-      </div>
+          <ProductCard key={id} prod={prod} />))}
+            
+      </div> }  
+    
+   
+     
     </div>
   )
 }

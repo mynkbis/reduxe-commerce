@@ -58,13 +58,13 @@ const Cart = () => {
                   cart.cartItems.map((cartItem, id) => (
                     <div className="cart-item" key={cartItem.id}>
                   <div className="cart-product">
-                    <img src={cartItem.image} alt={cartItem.title}/>
+                    <img src={cartItem.image} alt={cartItem.title.substring(0,12)}/>
                     <div>
-                      <h3>{cartItem.title.substring(0,12)}</h3>
-                        <p>{cartItem.description.substring(0, 53)}....</p>
+                      <h3>{cartItem.title.toString().substring(0,20)}...</h3>
+                        <p>{cartItem.description.toString().substring(0,30)}....</p>
                         <button onClick={() => handleRemoveFromCart(cartItem)}>
                         Remove
-                      </button>
+                      </button> 
                       </div>
                       </div>
                     <div className="cart-product-price">${cartItem.price}</div>

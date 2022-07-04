@@ -3,8 +3,10 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { fetchSingleProduct } from '../redux/productSlice';
 import { addToCart } from '../redux/cartSlice';
+
 const ProductCard = (props) => {
-    const { prod } = props;
+  const { prod } = props;
+  // console.log("from product", prod)
     const dispatch = useDispatch();
   const navigate = useNavigate();
   
