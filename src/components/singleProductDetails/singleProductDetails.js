@@ -1,7 +1,7 @@
 
 import React from "react"
 import { useSelector } from "react-redux"
-import { getselectedProduct } from "../redux/productSlice"
+import { getselectedProduct } from "../../redux/productSlice"
 import './singelProductDetails.css'
 export const SingleProductDetails = () => {
   const productSingle=useSelector(getselectedProduct)

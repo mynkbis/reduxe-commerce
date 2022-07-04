@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import './cart.css'
-import { addToCart, clearCart, decreaseCart, getTotals, removeFromCart } from '../redux/cartSlice'
+import { addToCart, clearCart, decreaseCart, getTotals, removeFromCart } from '../../redux/cartSlice'
 
 const Cart = () => {
   const navigate = useNavigate();
@@ -12,7 +12,7 @@ const Cart = () => {
 
   useEffect(() => {
     dispatch(getTotals());
-  },[cart])
+  },[dispatch,cart])
   
   const handleRemoveFromCart = (cartItem) => {
     dispatch(removeFromCart(cartItem));

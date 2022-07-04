@@ -34,7 +34,7 @@ const cartSlice = createSlice({
                 cartItem.id !== action.payload.id
             );
             state.cartItems = nextCartItems;
-                localStorage.setItem('cartItems',JSON.stringify(state.cartItems))
+            localStorage.setItem('cartItems',JSON.stringify(state.cartItems))
         },
         
         decreaseCart(state, action) {
